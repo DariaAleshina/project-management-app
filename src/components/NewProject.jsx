@@ -1,5 +1,6 @@
 import Input from './Input';
 import H2Header from './H2Header';
+import Button from './Button';
 
 export default function NewProject() {
   return (
@@ -8,14 +9,12 @@ export default function NewProject() {
         <H2Header title="create new project" />
         <ul className="flex gap-4">
           <li>
-            <button className="text-zinc-700 hover:text-zinc-950 py-2 px-4 rounded-xl">
-              Cancel
-            </button>
+            <Button>Cancel</Button>
           </li>
           <li>
-            <button className="py-2 px-4 bg-zinc-800 hover:bg-zinc-700 text-zinc-50 rounded-xl">
+            <Button primary color="dark">
               Save
-            </button>
+            </Button>
           </li>
         </ul>
       </menu>
