@@ -1,10 +1,17 @@
 import SideBar from './components/SideBar';
+import NewProject from './components/NewProject';
+import NoProjectSelected from './components/NoProjectSelected';
 
 function App() {
   return (
     <>
-      <main className="h-screen mt-14">
+      <main className="h-screen my-14 mx-8 flex gap-12">
         <SideBar />
+        {/* View Area */}
+        <div className=" bg-zinc-800 w-full p-8 text-zinc-950 bg-gradient-to-r from-violet-400 to-blue-400 rounded-2xl 	overflow-scroll">
+          <NewProject />
+          <NoProjectSelected />
+        </div>
       </main>
     </>
   );
