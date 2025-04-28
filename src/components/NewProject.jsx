@@ -1,8 +1,32 @@
-import Input from './Input';
 import H2Header from './H2Header';
+import Input from './Input';
 import Button from './Button';
 
-export default function NewProject() {
+import { useRef } from 'react';
+
+export default function NewProject({ onFormSave }) {
+  const title = useRef();
+  const description = useRef();
+  const dueDate = useRef();
+
+  const handleSave = function () {
+    const enteredTitle = title.current.value;
+    const enteredDescription = description.current.value;
+    const enteredDueDate = dueDate.current.value;
+
+    // TODO: add validation that all fields are filled correctly
+    onFormSave({
+      title: enteredTitle,
+      description: enteredDescription,
+      dueDate: enteredDueDate,
+    });
+
+    title.current.value =
+      description.current.value =
+      dueDate.current.value =
+        '';
+  };
+
   return (
     <div className=" w-[35rem] mb-12">
       <menu className="flex justify-between mb-4 items-center">
@@ -12,16 +36,16 @@ export default function NewProject() {
             <Button>Cancel</Button>
           </li>
           <li>
-            <Button primary color="dark">
+            <Button primary color="dark" onClick={handleSave}>
               Save
             </Button>
           </li>
         </ul>
       </menu>
       <div className="flex flex-col gap-5">
-        <Input label="Title" textarea />
-        <Input label="Description" textarea />
-        <Input label="Due Date" />
+        <Input type="text" label="Title" textarea ref={title} />
+        <Input type="text" label="Description" textarea ref={description} />
+        <Input type="date" label="Due Date" ref={dueDate} />
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import H2Header from './H2Header';
 import ProjectTeamIcon from '../assets/undraw_project-team.svg';
 import Button from './Button';
 
-export default function NoProjectSelected() {
+export default function NoProjectSelected({ onButtonClick }) {
   return (
     <div className="flex flex-col md:flex-row gap-20 mb-12">
       <div className="flex flex-col gap-5">
@@ -11,7 +11,9 @@ export default function NoProjectSelected() {
         {/* <button className=" font-medium px-4 py-2 text-xs md:text-base rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-50 w-full">
           Create a new project
         </button> */}
-        <Button primary>Create a new project</Button>
+        <Button primary onClick={() => onButtonClick(null)}>
+          Create a new project
+        </Button>
       </div>
       <img
         src={ProjectTeamIcon}
