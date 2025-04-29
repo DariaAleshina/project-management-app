@@ -5,13 +5,11 @@ import Button from './Button';
 import { useRef, useState } from 'react';
 import Modal from './Modal';
 
-export default function NewProject({ onFormSave }) {
+export default function NewProject({ onFormSave, onFormCancel }) {
   const modal = useRef();
   const title = useRef();
   const description = useRef();
   const dueDate = useRef();
-
-  //   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleSave = function () {
     const enteredTitle = title.current.value;
@@ -43,7 +41,7 @@ export default function NewProject({ onFormSave }) {
     <>
       <Modal ref={modal}>
         <H2Header title="Invalid Input" className="text-zinc-950" />
-        <p>Oops... looks like you forgot to enter values</p>
+        <p className="my-3">Oops... looks like you forgot to enter values</p>
       </Modal>
 
       <div className=" md:w-[35rem] mb-12">
@@ -51,7 +49,7 @@ export default function NewProject({ onFormSave }) {
           <H2Header title="create new project" />
           <ul className="flex gap-4">
             <li>
-              <Button>Cancel</Button>
+              <Button onClick={() => onFormCancel(undefined)}>Cancel</Button>
             </li>
             <li>
               <Button primary color="dark" onClick={handleSave}>

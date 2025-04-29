@@ -54,7 +54,10 @@ function App() {
           )}
 
           {projectsState.selectedProjectId === null && (
-            <NewProject onFormSave={handleSaveNewProject} />
+            <NewProject
+              onFormSave={handleSaveNewProject}
+              onFormCancel={handleProjectViewUpdate}
+            />
           )}
         </div>
       </main>
