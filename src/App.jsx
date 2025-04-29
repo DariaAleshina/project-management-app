@@ -1,6 +1,7 @@
 import SideBar from './components/SideBar';
 import NewProject from './components/NewProject';
 import NoProjectSelected from './components/NoProjectSelected';
+import SelectedProject from './components/SelectedProject';
 import { useState } from 'react';
 import { use } from 'react';
 import { preconnect } from 'react-dom';
@@ -57,6 +58,14 @@ function App() {
             <NewProject
               onFormSave={handleSaveNewProject}
               onFormCancel={handleProjectViewUpdate}
+            />
+          )}
+
+          {projectsState.selectedProjectId && (
+            <SelectedProject
+              project={projectsState.projects.find(
+                project => project.id === projectsState.selectedProjectId
+              )}
             />
           )}
         </div>

@@ -14,7 +14,9 @@ export default function SideBar({ onButtonClick, projects }) {
             key={project.id}
             className=" text-zinc-400 flex items-center py-2 px-4 rounded-sm hover:bg-zinc-800 hover:text-zinc-50"
           >
-            <button onClick={() => onButtonClick(null)}>{project.title}</button>
+            <button onClick={() => onButtonClick(project.id)}>
+              {project.title}
+            </button>
           </li>
         ))}
       </ul>
