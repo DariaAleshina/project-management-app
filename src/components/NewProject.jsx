@@ -2,7 +2,7 @@ import H2Header from './H2Header';
 import Input from './Input';
 import Button from './Button';
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import Modal from './Modal';
 
 export default function NewProject({ onFormSave }) {
@@ -10,6 +10,8 @@ export default function NewProject({ onFormSave }) {
   const title = useRef();
   const description = useRef();
   const dueDate = useRef();
+
+  //   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleSave = function () {
     const enteredTitle = title.current.value;
@@ -43,6 +45,7 @@ export default function NewProject({ onFormSave }) {
         <H2Header title="Invalid Input" className="text-zinc-950" />
         <p>Oops... looks like you forgot to enter values</p>
       </Modal>
+
       <div className=" md:w-[35rem] mb-12">
         <menu className="flex flex-col md:flex-row md:justify-between mb-4 md:items-center gap-3.5">
           <H2Header title="create new project" />
