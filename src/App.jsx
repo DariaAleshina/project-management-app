@@ -32,7 +32,7 @@ function App() {
 
       return {
         ...prevState,
-        selectedProjectId: undefined,
+        selectedProjectId: newProject.id,
         projects: [...prevState.projects, newProject],
       };
     });
@@ -42,14 +42,15 @@ function App() {
 
   return (
     <>
-      <main className="h-screen py-6 px-8 flex gap-12">
+      <main className="h-screen py-6 px-8 flex gap-6">
         <SideBar
           onButtonClick={handleProjectViewUpdate}
           projects={projectsState.projects}
+          selectedProjectID={projectsState.selectedProjectId}
         />
 
         {/* View Area */}
-        <div className=" bg-zinc-800 w-full p-8 text-zinc-950 bg-gradient-to-r from-violet-400 to-blue-400 rounded-2xl 	overflow-scroll">
+        <div className=" bg-zinc-800 w-full p-16 text-zinc-950 bg-gradient-to-r from-violet-400 to-blue-400 rounded-2xl 	overflow-scroll">
           {projectsState.selectedProjectId === undefined && (
             <NoProjectSelected onButtonClick={handleProjectViewUpdate} />
           )}
