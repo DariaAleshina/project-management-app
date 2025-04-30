@@ -3,8 +3,6 @@ import NewProject from './components/NewProject';
 import NoProjectSelected from './components/NoProjectSelected';
 import SelectedProject from './components/SelectedProject';
 import { useState } from 'react';
-import { use } from 'react';
-import { preconnect } from 'react-dom';
 
 const INIT_STATE = {
   selectedProjectId: undefined, // triggers NoProjectSelected view

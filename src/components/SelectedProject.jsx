@@ -1,5 +1,6 @@
 import Button from './Button';
 import H2Header from './H2Header';
+import Tasks from './Tasks';
 
 export default function SelectedProject({ project, onDelete }) {
   const formattedDueDate = new Date(project.dueDate).toLocaleDateString(
@@ -23,10 +24,9 @@ export default function SelectedProject({ project, onDelete }) {
       </header>
       <section className="rounded-2xl p-6  bg-zinc-100 whitespace-pre-wrap">
         {project.description}
-      </section>{' '}
-      <section className="rounded-2xl p-6  bg-zinc-100 ">
-        Tasks will be here
       </section>
+
+      <Tasks tasks={project.tasks} />
     </div>
   );
 }

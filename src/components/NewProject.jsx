@@ -30,6 +30,7 @@ export default function NewProject({ onFormSave, onFormCancel }) {
       title: enteredTitle,
       description: enteredDescription,
       dueDate: enteredDueDate,
+      tasks: [],
     });
 
     // title.current.value =
