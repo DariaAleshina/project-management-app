@@ -40,6 +40,20 @@ function App() {
 
   console.log('projectsState: ', projectsState);
 
+  const handleProjectDelete = function (id) {
+    setProjectsState(prevState => {
+      const projectsUpdated = prevState.projects.filter(
+        project => id !== project.id
+      );
+
+      return {
+        ...prevState,
+        selectedProjectId: undefined,
+        projects: projectsUpdated,
+      };
+    });
+  };
+
   return (
     <>
       <main className="h-screen py-6 px-8 flex gap-6">
@@ -67,6 +81,7 @@ function App() {
               project={projectsState.projects.find(
                 project => project.id === projectsState.selectedProjectId
               )}
+              onDelete={handleProjectDelete}
             />
           )}
         </div>

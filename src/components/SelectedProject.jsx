@@ -1,7 +1,7 @@
 import Button from './Button';
 import H2Header from './H2Header';
 
-export default function SelectedProject({ project }) {
+export default function SelectedProject({ project, onDelete }) {
   const formattedDueDate = new Date(project.dueDate).toLocaleDateString(
     'en-DE',
     {
@@ -18,7 +18,7 @@ export default function SelectedProject({ project }) {
           <p className="py-2 px-4 text-zinc-50 bg-zinc-800 rounded-3xl">
             {formattedDueDate}
           </p>
-          <Button>Delete</Button>
+          <Button onClick={() => onDelete(project.id)}>Delete</Button>
         </div>
       </header>
       <section className="rounded-2xl p-6  bg-zinc-100 whitespace-pre-wrap">
