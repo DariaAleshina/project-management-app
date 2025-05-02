@@ -14,7 +14,10 @@ export default function Tasks({ projectId, tasks, onAdd, onDelete }) {
             {tasks.map(task => (
               <li key={task.id} className="flex justify-between">
                 <span>{task.task}</span>
-                <button className="font-light text-sm text-zinc-700 hover:text-violet-700">
+                <button
+                  onClick={() => onDelete(projectId, task.id)}
+                  className="font-light text-sm text-zinc-700 hover:text-violet-700"
+                >
                   Clear
                 </button>
               </li>
@@ -22,11 +25,7 @@ export default function Tasks({ projectId, tasks, onAdd, onDelete }) {
           </ul>
         )}
       </div>
-      <NewTask
-        projectId={projectId}
-        onTaskAdd={onAdd}
-        onTaskDelete={onDelete}
-      />
+      <NewTask projectId={projectId} onTaskAdd={onAdd} />
     </section>
   );
 }

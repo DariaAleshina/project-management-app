@@ -3,17 +3,21 @@ import Button from './Button';
 
 import { useState } from 'react';
 
-export default function NewTask({ projectId, onTaskAdd, onTaskDelete }) {
-  const [enteredTask, setEnteredTask] = useState();
+export default function NewTask({ projectId, onTaskAdd }) {
+  const [enteredTask, setEnteredTask] = useState('');
+
   const handleChange = function (event) {
     setEnteredTask(event.target.value);
   };
+
   const handleClick = function () {
+    if (enteredTask.trim() === '') return;
     onTaskAdd(projectId, enteredTask);
     setEnteredTask('');
   };
+
   return (
-    <div className="rounded-2xl p-6  bg-blue-300 flex flex-col gap-5 lg:w-full">
+    <div className="rounded-2xl p-6  bg-blue-300 self-start flex flex-col gap-5 lg:w-full">
       <Input
         label="Add new task"
         textarea

@@ -65,8 +65,9 @@ function App() {
             ...project,
             tasks: [...project.tasks, newTask],
           };
+        } else {
+          return project;
         }
-        return project;
       });
 
       return {
@@ -76,7 +77,26 @@ function App() {
     });
   };
 
-  const handleDeleteTask = function (projectId, taskId) {};
+  const handleDeleteTask = function (projectId, taskId) {
+    console.log('project id: ', projectId, 'task id: ', taskId);
+
+    setProjectsState(prevState => {
+      const newProjectsArray = prevState.projects.map(project => {
+        if (project.id === projectId) {
+          return {
+            ...project,
+            tasks: project.tasks.filter(task => task.id !== taskId),
+          };
+        } else {
+          return project;
+        }
+      });
+      return {
+        ...prevState,
+        projects: newProjectsArray,
+      };
+    });
+  };
 
   return (
     <>
