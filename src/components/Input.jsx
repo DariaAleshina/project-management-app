@@ -6,7 +6,7 @@ const Input = forwardRef(function Input({ label, textarea, ...props }, ref) {
 
   return (
     <div className="flex flex-col gap-2">
-      <label className="capitalise">{label}</label>
+      <label className="capitalize">{label}</label>
       {textarea ? (
         <textarea {...props} className={inputClasses} ref={ref} />
       ) : (
