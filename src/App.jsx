@@ -52,6 +52,32 @@ function App() {
     });
   };
 
+  const handleAddTask = function (projectId, taskText) {
+    setProjectsState(prevState => {
+      const newTask = {
+        task: taskText,
+        id: Math.round(Math.random() * 10000) + 1, //random ID number generated
+      };
+
+      const newProjectsArray = prevState.projects.map(project => {
+        if (project.id === projectId) {
+          return {
+            ...project,
+            tasks: [...project.tasks, newTask],
+          };
+        }
+        return project;
+      });
+
+      return {
+        ...prevState,
+        projects: newProjectsArray,
+      };
+    });
+  };
+
+  const handleDeleteTask = function (projectId, taskId) {};
+
   return (
     <>
       <main className="h-screen py-6 px-8 flex gap-6">
@@ -80,6 +106,8 @@ function App() {
                 project => project.id === projectsState.selectedProjectId
               )}
               onDelete={handleProjectDelete}
+              onTaskAdd={handleAddTask}
+              onTaskDelete={handleDeleteTask}
             />
           )}
         </div>

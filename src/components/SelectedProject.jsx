@@ -2,7 +2,12 @@ import Button from './Button';
 import H2Header from './H2Header';
 import Tasks from './Tasks';
 
-export default function SelectedProject({ project, onDelete }) {
+export default function SelectedProject({
+  project,
+  onDelete,
+  onTaskAdd,
+  onTaskDelete,
+}) {
   const formattedDueDate = new Date(project.dueDate).toLocaleDateString(
     'en-DE',
     {
@@ -26,7 +31,12 @@ export default function SelectedProject({ project, onDelete }) {
         {project.description}
       </section>
 
-      <Tasks tasks={project.tasks} />
+      <Tasks
+        projectId={project.id}
+        tasks={project.tasks}
+        onAdd={onTaskAdd}
+        onDelete={onTaskDelete}
+      />
     </div>
   );
 }
