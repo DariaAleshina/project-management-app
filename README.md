@@ -26,5 +26,7 @@ A minimal React application for managing personal projects and their tasks. Desi
 
 ## 📁 How to run
 
+```bash
 npm install
 npm run dev
+```
