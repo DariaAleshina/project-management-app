@@ -1,4 +1,3 @@
-import Button from './Button';
 import NewTask from './NewTask';
 
 export default function Tasks({ projectId, tasks, onAdd, onDelete }) {

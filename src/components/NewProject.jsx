@@ -2,7 +2,7 @@ import H2Header from './H2Header';
 import Input from './Input';
 import Button from './Button';
 
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import Modal from './Modal';
 import ProjectImg from '../assets/undraw_project-new.svg';
 
